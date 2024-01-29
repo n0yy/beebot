@@ -47,10 +47,10 @@ def supertrend(df, period=7, atr_multiplier=3):
         else:
             df["is_uptrend"][curr] = df["is_uptrend"][prev]
 
-            if df['in_uptrend'][curr] and df['lowerband'][curr] < df['lowerband'][prev]:
+            if df['is_uptrend'][curr] and df['lowerband'][curr] < df['lowerband'][prev]:
                 df['lowerband'][curr] = df['lowerband'][prev]
 
-            if not df['in_uptrend'][curr] and df['upperband'][curr] > df['upperband'][prev]:
+            if not df['is_uptrend'][curr] and df['upperband'][curr] > df['upperband'][prev]:
                 df['upperband'][curr] = df['upperband'][prev]
     
     return df
